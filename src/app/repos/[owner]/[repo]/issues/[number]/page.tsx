@@ -1,1 +1,3 @@
-export default function IssueDetail() {}
+export default function IssueDetail() {
+  return <div className="flex-1"></div>;
+}

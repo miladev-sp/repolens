@@ -2,7 +2,7 @@ import Image from "next/image";
 import search from "@/public/search.svg";
 export default function Loading() {
   return (
-    <div className=" h-[80vh] flex items-center justify-center">
+    <div className=" flex-1 flex items-center justify-center">
       <h2 className="font-jersey text-[#C10007] font-bold text-7xl lg:text-9xl">
         Loading...
       </h2>

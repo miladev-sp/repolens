@@ -7,6 +7,7 @@ import { Issues } from "@/src/types/types";
 import Link from "next/link";
 import { Suspense } from "react";
 import Loading from "./loading";
+import NotFound from "./not-found";
 
 type Props = {
   params: Promise<{ owner: string; repo: string }>;
@@ -19,7 +20,7 @@ type Props = {
     page?: string;
   };
 };
-
+export const revalidate = 3600;
 export default async function IssuesPage({ params, searchParams }: Props) {
   const ownerName = (await params).owner;
   const repoName = (await params).repo;
@@ -33,9 +34,10 @@ export default async function IssuesPage({ params, searchParams }: Props) {
     direction,
     page,
   });
+
   const suspenseKey = `${state}-${labels}-${assignee}-${sort}-${direction}-${page}-${issues}`;
   return (
-    <div className="min-h-[80vh] mx-8 mt-3.5">
+    <div className="flex-1 mx-8 mt-3.5">
       <div className="flex text-[#9198a1] font-inter justify-between text-base ">
         <div>
           <span>{ownerName}</span> /{" "}
@@ -69,18 +71,20 @@ export default async function IssuesPage({ params, searchParams }: Props) {
         />
 
         <IssuesGrid issues={issues} owner={ownerName} repo={repoName} />
-        <IssuePagination
-          repo={repoName}
-          owner={ownerName}
-          options={{
-            state: state,
-            labels: labels,
-            assignee: assignee,
-            sort: sort,
-            direction: direction,
-          }}
-          currentPage={currentPage}
-        />
+        {issues.length > 0 ? (
+          <IssuePagination
+            repo={repoName}
+            owner={ownerName}
+            options={{
+              state: state,
+              labels: labels,
+              assignee: assignee,
+              sort: sort,
+              direction: direction,
+            }}
+            currentPage={currentPage}
+          />
+        ) : null}
       </Suspense>
     </div>
   );

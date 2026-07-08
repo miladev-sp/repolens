@@ -14,10 +14,9 @@ export default async function ReposPage({ searchParams }: Props) {
   const { q, page } = await searchParams;
   const resolvedQuery = q || "";
   const resolvedPage = page || "1";
-  const susPenseKey = `${resolvedPage}-${resolvedQuery}`;
 
   return (
-    <div className="flex flex-col justify-center items-center w-full">
+    <div className="flex flex-col  justify-center  w-full flex-1">
       <RepoSearch query={resolvedQuery} />
       {resolvedQuery ? (
         <Suspense

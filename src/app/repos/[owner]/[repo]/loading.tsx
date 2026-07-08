@@ -1,6 +1,6 @@
 export default function Laoding() {
   return (
-    <div className="animate-pulse px-6 py-8">
+    <div className="animate-pulse px-6 py-8 flex-1">
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-8">
         <div>
           <div className="flex justify-between items-start gap-4">

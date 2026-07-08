@@ -19,10 +19,12 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
 type Props = {
   params: Promise<{ repo: string; owner: string }>;
 };
+export const revalidate = 7200;
 
 export default async function RepoDetailsPage({ params }: Props) {
   const repoName = (await params).repo;
@@ -37,8 +39,11 @@ export default async function RepoDetailsPage({ params }: Props) {
   const langColor = languageColors[repo.language ?? ""] || "#8b949e";
   const dateCreated = new Date(repo.created_at);
   const dateUpdated = new Date(repo.updated_at);
+  if (repo.status === "404") {
+    notFound();
+  }
   return (
-    <div className="mx-8 min-h-[75vh] mt-8 lg:grid lg:grid-cols-[2fr_1.5fr]  ">
+    <div className="mx-8 flex-1 mt-8 lg:grid lg:grid-cols-[2fr_1.5fr]  ">
       <div>
         <div className="lg:flex lg:items-center lg:gap-12 lg:justify-between ">
           <div className="flex items-center gap-2  ">
@@ -98,9 +103,9 @@ export default async function RepoDetailsPage({ params }: Props) {
         <hr className="text-[#9198a1] mt-3.5" />
         <Link
           href={repo.html_url}
-          className="text-[#1f6feb] flex items-center gap-1 mt-3.5 lg:text-lg"
+          className="text-[#1f6feb] flex items-center gap-1 mt-3.5 lg:text-lg text-wrap overflow-hidden"
         >
-          <Linki size={18} />
+          <Linki size={18} className="shrink-0" />
           {repo.html_url.slice(8)}
         </Link>
         <hr className="text-[#9198a1] mt-3.5" />

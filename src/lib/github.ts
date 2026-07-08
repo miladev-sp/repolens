@@ -1,3 +1,5 @@
+import { Repos } from "../types/types";
+
 const BASE_URL = "https://api.github.com";
 function getHeaders() {
   const token = process.env.GITHUB_TOKEN;
@@ -97,9 +99,8 @@ export async function getReposIssues(
   }
 
   const data = await res.json();
-  console.log(`${BASE_URL}/repos/${owner}/${repo}/issues?${params.toString()}`);
-
-  return data;
+  const issues = data.filter((item: Repos) => !("pull_request" in item));
+  return issues;
 }
 
 export async function getAllissues(repo: string, owner: String) {

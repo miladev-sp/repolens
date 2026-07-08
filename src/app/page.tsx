@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Page() {
   return (
-    <main className="flex-col flex items-center justify-center h-[78vh]">
+    <main className="flex-col flex items-center justify-center flex-1 px-8">
       <h1 className="text-white font-jersey text-7xl text-center">
         Explore all repositories from{" "}
         <span className="bg-[#6639BA] rounded-2xl p-1">GITHUB</span> with{" "}

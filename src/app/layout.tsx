@@ -6,7 +6,7 @@ import localFont from "next/font/local";
 import { Geist } from "next/font/google";
 import { cn } from "@/lib/utils";
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata = {
   title: "REPOLENS",
@@ -29,9 +29,11 @@ export default function RootLayout({ children }: Props) {
     <html lang="en" className={cn("font-sans", geist.variable)}>
       <RepoProvider>
         <body className={`${jersey.variable} ${inter.variable} bg-[#151b23] `}>
-          <MainHeader />
-          {children}
-          <MainFooter />
+          <div className="flex flex-col min-h-screen">
+            <MainHeader />
+            {children}
+            <MainFooter />
+          </div>
         </body>
       </RepoProvider>
     </html>

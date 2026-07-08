@@ -16,7 +16,7 @@ export default function RepoSearch({ query }: Props) {
             type="text"
             name="query"
             placeholder="Search by owner name or repo name..."
-            className="bg-gray-500 placeholder:text-white placeholder:font-inter font-inter w-full px-5 py-4 rounded-2xl  text-white"
+            className="bg-gray-500 placeholder:text-white placeholder:font-inter font-inter w-full px-5 py-4 rounded-2xl  text-white placeholder:text-sm placeholder:lg:text-base"
             required
             onChange={(e) => {
               router.push(`/repos?q=${encodeURIComponent(e.target.value)}`);

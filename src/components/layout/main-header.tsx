@@ -6,7 +6,7 @@ import search from "@/public/search.svg";
 export default function MainHeader() {
   const { savedRepos } = useRepo();
   return (
-    <header className="flex justify-between px-8 items-center py-6 bg-black">
+    <header className="flex justify-between px-8 items-center py-3.5 bg-black">
       <div>
         <Link href={"/"}>
           <h2 className="text-red-700 font-jersey text-3xl lg:text-6xl">
@@ -17,7 +17,7 @@ export default function MainHeader() {
       <div className="flex items-center">
         <div>
           <Link href={`/repos`}>
-            <Image src={search} alt="serach" priority width={41} height={41} />
+            <Image src={search} alt="serach" priority width={32} height={32} />
           </Link>
         </div>
         <div className="relative">
@@ -28,7 +28,7 @@ export default function MainHeader() {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="size-13 "
+              className="size-11 lg:size-12 "
             >
               <path
                 strokeLinecap="round"
@@ -39,7 +39,7 @@ export default function MainHeader() {
           </Link>
           {savedRepos.length > 0 ? (
             <Link href={"/saved"}>
-              <span className="absolute top-2 right-5 font-inter font-bold text-lg">
+              <span className="absolute top-1.5 right-4 font-inter font-bold text-lg lg:right-4.5">
                 {savedRepos.length}
               </span>
             </Link>

@@ -20,6 +20,7 @@ export type ReposItem = {
   open_issues: number;
   stargazers_count: number;
   language: string;
+  status: string;
 };
 
 export type RepoDetail = {
@@ -35,6 +36,7 @@ export type RepoDetail = {
   language: string;
   created_at: string;
   updated_at: string;
+  status: string;
 };
 type labels = {
   name: string;
@@ -58,4 +60,8 @@ export type Labels = {
   name: string;
   color: string;
   description: string;
+};
+
+export type status = {
+  status: string;
 };

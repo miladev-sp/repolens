@@ -1,6 +1,6 @@
 export default function Loading() {
   return (
-    <div className="mx-4 mt-4 animate-pulse lg:mx-8">
+    <div className="mx-4 mt-4 animate-pulse lg:mx-8 flex-1">
       <div className="flex items-center justify-between">
         <div className="h-5 w-52 rounded bg-zinc-700" />
         <div className="h-5 w-16 rounded bg-zinc-700" />
