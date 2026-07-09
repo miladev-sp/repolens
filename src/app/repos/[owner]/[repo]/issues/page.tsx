@@ -7,7 +7,6 @@ import { Issues } from "@/src/types/types";
 import Link from "next/link";
 import { Suspense } from "react";
 import Loading from "./loading";
-import NotFound from "./not-found";
 
 type Props = {
   params: Promise<{ owner: string; repo: string }>;
@@ -36,6 +35,7 @@ export default async function IssuesPage({ params, searchParams }: Props) {
   });
 
   const suspenseKey = `${state}-${labels}-${assignee}-${sort}-${direction}-${page}-${issues}`;
+
   return (
     <div className="flex-1 mx-8 mt-3.5">
       <div className="flex text-[#9198a1] font-inter justify-between text-base ">

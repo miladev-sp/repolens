@@ -103,7 +103,7 @@ export async function getReposIssues(
   return issues;
 }
 
-export async function getAllissues(repo: string, owner: String) {
+export async function getAllissues(repo: string, owner: string) {
   const res = await fetch(
     `${BASE_URL}/search/issues?q=repo:${owner}/${repo}+type:issue`,
     {
