@@ -32,7 +32,9 @@ export default function IssuesCard({ issue, owner, repo }: Props) {
             />
           )}
           <div className="w-full">
-            <p className="text-[#c4c8ce] font-inter text-lg ">{issue.title}</p>
+            <p className="text-[#c4c8ce] font-inter text-lg text-wrap overflow-hidden">
+              {issue.title}
+            </p>
             <div className="flex gap-2 flex-wrap mt-1.5">
               {issue.labels?.map((label) => (
                 <span
